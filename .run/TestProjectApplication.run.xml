@@ -1,0 +1,12 @@
+<component name="ProjectRunConfigurationManager">
+    <configuration name="TestProjectApplication" default="false"
+        factoryName="Spring Boot" type="SpringBootApplicationConfigurationType">
+        <method v="2">
+            <option name="Make" enabled="true" />
+        </method>
+        <module name="TestProject" />
+        <option name="ALTERNATIVE_JRE_PATH" />
+        <option name="SPRING_BOOT_MAIN_CLASS"
+            value="com.example.TestProject.TestProjectApplication" />
+    </configuration>
+</component>
