@@ -8,11 +8,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping(value = "/users", produces = "application/json")
 @AllArgsConstructor
+@Api(description = "Registering users")
 public class UserController {
 
     private final IUserService userService;

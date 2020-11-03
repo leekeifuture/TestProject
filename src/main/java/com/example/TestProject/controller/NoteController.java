@@ -15,11 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
+import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;
 
 @RestController
 @RequestMapping(value = "/notes", produces = "application/json")
 @AllArgsConstructor
+@Api(description = "CRUD for note")
 public class NoteController {
 
     private final INoteService noteService;

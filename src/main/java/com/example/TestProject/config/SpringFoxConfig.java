@@ -41,7 +41,10 @@ public class SpringFoxConfig {
     private ApiInfo apiInfo() {
         return new ApiInfo(
                 "API documentation for test project",
-                "Added 2 users: user:user and admin:admin",
+                "Test project for Softarex Technologies.\n" +
+                        "Added 2 users: user:user and admin:admin.\n" +
+                        "Use /login endpoint with 'username' and 'password' " +
+                        "parameters in body for getting auth token in response header.",
                 "V1.0",
                 "",
                 new Contact("", "", ""),
