@@ -16,9 +16,9 @@ import java.util.List;
 import lombok.AllArgsConstructor;
 
 @RestController
-@RequestMapping(value = "/api/v1/notes", produces = "application/json")
+@RequestMapping(value = "/notes", produces = "application/json")
 @AllArgsConstructor
-public class NotesController {
+public class NoteController {
 
     private final INoteService noteService;
 

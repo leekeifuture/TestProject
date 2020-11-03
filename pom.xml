@@ -26,6 +26,10 @@
             <artifactId>spring-boot-starter-data-jpa</artifactId>
             <groupId>org.springframework.boot</groupId>
         </dependency>
+        <dependency>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <groupId>org.springframework.boot</groupId>
+        </dependency>
 
         <!-- Database -->
         <dependency>
@@ -37,6 +41,25 @@
         <dependency>
             <artifactId>lombok</artifactId>
             <groupId>org.projectlombok</groupId>
+        </dependency>
+
+        <!-- JWT -->
+        <dependency>
+            <artifactId>jjwt-api</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <version>0.10.5</version>
+        </dependency>
+        <dependency>
+            <artifactId>jjwt-impl</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <scope>runtime</scope>
+            <version>0.10.5</version>
+        </dependency>
+        <dependency>
+            <artifactId>jjwt-jackson</artifactId>
+            <groupId>io.jsonwebtoken</groupId>
+            <scope>runtime</scope>
+            <version>0.10.5</version>
         </dependency>
 
         <!-- Tests -->
@@ -52,6 +75,7 @@
             <scope>test</scope>
         </dependency>
 
+        <!-- Other -->
         <dependency>
             <artifactId>hibernate-types-52</artifactId>
             <groupId>com.vladmihalcea</groupId>
