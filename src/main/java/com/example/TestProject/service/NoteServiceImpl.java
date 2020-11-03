@@ -4,6 +4,7 @@ import com.example.TestProject.dao.INoteDao;
 import com.example.TestProject.dto.Note;
 import com.example.TestProject.dto.User;
 import com.example.TestProject.dto.entity.NoteRequestBody;
+import com.example.TestProject.exception.ResourceNotFoundException;
 
 import org.springframework.stereotype.Service;
 
@@ -28,7 +29,7 @@ public class NoteServiceImpl implements INoteService {
     }
 
     @Override
-    public Note getNoteById(Integer id, String authenticationData) throws Exception {
+    public Note getNoteById(Integer id, String authenticationData) {
         User user = userService.getUserByAuthenticationData(authenticationData);
         Optional<Note> result = noteDao.findByIdAndAuthorId(id, user.getId());
 
@@ -36,7 +37,7 @@ public class NoteServiceImpl implements INoteService {
             return result.get();
         }
 
-        throw new Exception("Note note found");
+        throw new ResourceNotFoundException("Not Found");
     }
 
     @Override
@@ -48,7 +49,7 @@ public class NoteServiceImpl implements INoteService {
     }
 
     @Override
-    public Note editNote(NoteRequestBody noteRequestBody, String authenticationData) throws Exception {
+    public Note editNote(NoteRequestBody noteRequestBody, String authenticationData) {
         User user = userService.getUserByAuthenticationData(authenticationData);
 
         if (noteDao.existsByIdAndAuthorId(noteRequestBody.getId(), user.getId())) {
@@ -62,16 +63,16 @@ public class NoteServiceImpl implements INoteService {
             return noteDao.save(newNote);
         }
 
-        throw new Exception("Note note found");
+        throw new ResourceNotFoundException("Not Found");
     }
 
     @Override
-    public Note removeNoteById(Integer id, String authenticationData) throws Exception {
+    public Note removeNoteById(Integer id, String authenticationData) {
         User user = userService.getUserByAuthenticationData(authenticationData);
         Optional<Note> note = noteDao.findByIdAndAuthorId(id, user.getId());
 
         if (!note.isPresent()) {
-            throw new Exception("Note note found");
+            throw new ResourceNotFoundException("Not Found");
         }
 
         noteDao.deleteById(id);
